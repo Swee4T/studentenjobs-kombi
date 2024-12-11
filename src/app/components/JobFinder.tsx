@@ -53,27 +53,27 @@ export default function JobFinder() {
 
  return (
    <Card className="p-6 bg-white shadow-lg">
-     {/* Breadcrumbs */}
-     <div className="mb-8 overflow-x-auto px-4">
-       <div className="flex items-center space-x-2 text-sm text-gray-600 min-w-max">
-         {history.map((item, index) => (
-           <React.Fragment key={index}>
-             {index > 0 && <ChevronRight className="w-4 h-4" />}
-             <button
-               onClick={() => jumpToHistoryPoint(index)}
-               className={`${
-                 index === history.length - 1 
-                   ? 'font-semibold text-blue-600 cursor-default' 
-                   : 'hover:text-blue-500 hover:underline cursor-pointer'
-               } transition-colors`}
-               disabled={index === history.length - 1}
-             >
-               {item.answer}
-             </button>
-           </React.Fragment>
-         ))}
-       </div>
-     </div>
+    {/* Breadcrumbs */}
+<div className="mb-8 px-4">
+  <div className="flex flex-wrap items-center gap-2 text-sm text-gray-600">
+    {history.map((item, index) => (
+      <React.Fragment key={index}>
+        {index > 0 && <ChevronRight className="w-4 h-4 flex-shrink-0" />}
+        <button
+          onClick={() => jumpToHistoryPoint(index)}
+          className={`${
+            index === history.length - 1 
+              ? 'font-semibold text-blue-600 cursor-default' 
+              : 'hover:text-blue-500 hover:underline cursor-pointer'
+          } transition-colors`}
+          disabled={index === history.length - 1}
+        >
+          {item.answer}
+        </button>
+      </React.Fragment>
+    ))}
+  </div>
+</div>
 
      <div className="px-4">
        {result ? (
