@@ -49,11 +49,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de">
-      <body className={inter.className}>
-        <SchemaOrg />
-        <main className="min-h-screen">{children}</main>  {}
-        <Footer />
-      </body>
+<body className={`${inter.className} antialiased`}>
+  <div className="min-h-screen backdrop-blur-[200px]">
+    <SchemaOrg />
+    <main className="min-h-screen">{children}</main>
+    <Footer />
+  </div>
+</body>
     </html>
   )
 }
