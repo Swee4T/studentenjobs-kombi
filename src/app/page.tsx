@@ -1,101 +1,239 @@
-import Image from "next/image";
+'use client'
 
-export default function Home() {
+import React, { useState } from 'react';
+import { Card, CardHeader, CardTitle, CardContent } from './components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs';
+import { 
+  Info, 
+  BookOpen, 
+  Calendar, 
+  AlertTriangle,
+  CheckCircle,
+  XCircle,
+  Briefcase,
+  CreditCard,
+  Clock,
+  GraduationCap
+} from 'lucide-react';
+
+export default function StudentJobsGuide() {
+  const [activeTab, setActiveTab] = useState('overview');
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-gray-50 py-12 px-4">
+      <div className="max-w-4xl mx-auto">
+        <header className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-4">Studentenjobs Guide 2024</h1>
+          <p className="text-lg text-gray-600">Kombinationen aus Werkstudent, Minijob & Kurzfristige Beschäftigung</p>
+        </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <Tabs defaultValue="overview" className="space-y-4">
+          <TabsList className="grid grid-cols-4 gap-4 bg-transparent">
+            <TabsTrigger 
+              value="overview" 
+              className="data-[state=active]:bg-blue-500 data-[state=active]:text-white flex items-center justify-center transition-all"
+            >
+              <Info className="mr-2 h-4 w-4" />
+              Übersicht
+            </TabsTrigger>
+            <TabsTrigger 
+              value="rules" 
+              className="data-[state=active]:bg-purple-500 data-[state=active]:text-white flex items-center justify-center transition-all"
+            >
+              <BookOpen className="mr-2 h-4 w-4" />
+              Regeln
+            </TabsTrigger>
+            <TabsTrigger 
+              value="timeline" 
+              className="data-[state=active]:bg-green-500 data-[state=active]:text-white flex items-center justify-center transition-all"
+            >
+              <Calendar className="mr-2 h-4 w-4" />
+              Zeitplan
+            </TabsTrigger>
+            <TabsTrigger 
+              value="warnings" 
+              className="data-[state=active]:bg-yellow-500 data-[state=active]:text-white flex items-center justify-center transition-all"
+            >
+              <AlertTriangle className="mr-2 h-4 w-4" />
+              Wichtig
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="overview">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Info className="mr-2 h-5 w-5 text-blue-500" />
+                  Mögliche Kombinationen
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-green-50 p-4 rounded-lg">
+                    <h3 className="font-bold text-green-700 mb-2 flex items-center">
+                      <CheckCircle className="mr-2 h-4 w-4" />
+                      Erlaubt ✅
+                    </h3>
+                    <ul className="space-y-2">
+                      <li>• Minijob + Werkstudent, solange unter 20h von Mo-Sa (Vorlesungszeit)</li>
+                      <li>• Minijob + Kurzfristige Beschäftigung</li>
+                      <li>• Minijob während Praxissemester</li>
+                    </ul>
+                  </div>
+                  <div className="bg-red-50 p-4 rounded-lg">
+                    <h3 className="font-bold text-red-700 mb-2 flex items-center">
+                      <XCircle className="mr-2 h-4 w-4" />
+                      Nicht Erlaubt ❌
+                    </h3>
+                    <ul className="space-y-2">
+                      <li>• Werkstudent + Kurzfristige Beschäftigung im selben Jahr, falls über 70 Arbeitstage</li>
+                      <li>• Überschreitung der 20h/Woche während Vorlesungszeit</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="rules">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <BookOpen className="mr-2 h-5 w-5 text-purple-500" />
+                  Grundregeln
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid gap-4">
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <h3 className="font-bold mb-2 flex items-center">
+                      <Briefcase className="mr-2 h-4 w-4 text-blue-700" />
+                      Werkstudent
+                    </h3>
+                    <ul className="space-y-2">
+                      <li>• Max. 20h/Woche während Vorlesungszeit</li>
+                      <li>• Keine Stundenbegrenzung in Semesterferien</li>
+                      <li>• Zählt zu den 70 Arbeitstagen pro Jahr</li>
+                    </ul>
+                  </div>
+                  <div className="bg-purple-50 p-4 rounded-lg">
+                    <h3 className="font-bold mb-2 flex items-center">
+                      <CreditCard className="mr-2 h-4 w-4 text-purple-700" />
+                      Minijob
+                    </h3>
+                    <ul className="space-y-2">
+                      <li>• Max. 520€ pro Monat</li>
+                      <li>• Keine Stundenbegrenzung</li>
+                      <li>• Ganzjährig möglich</li>
+                    </ul>
+                  </div>
+                  <div className="bg-orange-50 p-4 rounded-lg">
+                    <h3 className="font-bold mb-2 flex items-center">
+                      <Clock className="mr-2 h-4 w-4 text-orange-700" />
+                      Kurzfristige Beschäftigung
+                    </h3>
+                    <ul className="space-y-2">
+                      <li>• Max. 70 Arbeitstage pro Kalenderjahr</li>
+                      <li>• Keine Verdienstgrenze</li>
+                      <li>• Zeitlich flexibel einteilbar</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="timeline">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Calendar className="mr-2 h-5 w-5 text-green-500" />
+                  Jahresplanung
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <h3 className="font-bold mb-2 flex items-center">
+                      <GraduationCap className="mr-2 h-4 w-4 text-gray-700" />
+                      Vorlesungszeit
+                    </h3>
+                    <p>• Maximale Gesamtarbeitszeit: 20h/Woche</p>
+                    <p>• Minijob möglich</p>
+                    <p>• Entweder Werkstudent ODER kurzfristige Beschäftigung</p>
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <h3 className="font-bold mb-2 flex items-center">
+                      <Calendar className="mr-2 h-4 w-4 text-gray-700" />
+                      Semesterferien
+                    </h3>
+                    <p>• Keine Stundenbegrenzung</p>
+                    <p>• Höherer Verdienst möglich</p>
+                    <p>• Flexiblere Zeiteinteilung</p>
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <h3 className="font-bold mb-2 flex items-center">
+                      <Briefcase className="mr-2 h-4 w-4 text-gray-700" />
+                      Praxissemester
+                    </h3>
+                    <p>• Minijob parallel möglich</p>
+                    <p>• Vertragsbedingungen beachten</p>
+                    <p>• 520€-Grenze gilt weiterhin für Minijob</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="warnings">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <AlertTriangle className="mr-2 h-5 w-5 text-yellow-500" />
+                  Wichtige Hinweise
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500">
+                    <h3 className="font-bold mb-2 flex items-center">
+                      <Info className="mr-2 h-4 w-4 text-yellow-700" />
+                      Vor dem Start
+                    </h3>
+                    <ul className="space-y-2">
+                      <li>• Bei der Krankenkasse informieren</li>
+                      <li>• Arbeitsstunden und -tage dokumentieren</li>
+                      <li>• Verdienstgrenzen im Blick behalten</li>
+                    </ul>
+                  </div>
+                  <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500">
+                    <h3 className="font-bold mb-2 flex items-center">
+                      <Calendar className="mr-2 h-4 w-4 text-yellow-700" />
+                      Jährliche Planung
+                    </h3>
+                    <ul className="space-y-2">
+                      <li>• 70-Tage-Limit gilt pro Kalenderjahr</li>
+                      <li>• Neue Planung ab Januar möglich</li>
+                      <li>• Semesterzeiten berücksichtigen</li>
+                    </ul>
+                  </div>
+                  <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500">
+                    <h3 className="font-bold mb-2 flex items-center">
+                      <AlertTriangle className="mr-2 h-4 w-4 text-yellow-700" />
+                      Bei Unsicherheit
+                    </h3>
+                    <ul className="space-y-2">
+                      <li>• Krankenkasse kontaktieren</li>
+                      <li>• Arbeitgeber informieren</li>
+                      <li>• Schriftliche Bestätigung einholen</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </Tabs>
+      </div>
     </div>
   );
 }

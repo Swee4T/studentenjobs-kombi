@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Wichtige Seiten
+Allow: /70-tage-regelung
+Allow: /minijob-rechner
+Allow: /werkstudent-guide
+Allow: /impressum
+Allow: /datenschutz
+
+Sitemap: https://studentenjobs-kombi.de/sitemap.xml
