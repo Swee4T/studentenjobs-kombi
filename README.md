@@ -4,10 +4,15 @@ Ein interaktiver Guide für Studenten, der erklärt, wie verschiedene Jobarten (
 
 ## 🎯 Features
 
+
 - Übersichtliche Darstellung erlaubter und nicht erlaubter Job-Kombinationen
 - Grundregeln für verschiedene Beschäftigungsarten
 - Jahresplanung und Zeitmanagement
 - Wichtige Hinweise und Warnungen
+- **NEU**: Interaktiver Job-Finder
+  - Schrittweise Führung durch Entscheidungsprozess
+  - Navigation durch Breadcrumbs
+  - Personalisierte Ergebnisse und Empfehlungen
 
 ## 🚀 Technologien
 

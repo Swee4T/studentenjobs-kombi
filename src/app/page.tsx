@@ -15,9 +15,9 @@ import {
   Clock,
   GraduationCap
 } from 'lucide-react';
+import JobFinder from './components/JobFinder';
 
 export default function StudentJobsGuide() {
-
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="max-w-4xl mx-auto">
@@ -74,7 +74,7 @@ export default function StudentJobsGuide() {
                       Erlaubt ✅
                     </h3>
                     <ul className="space-y-2">
-                      <li>• Minijob + Werkstudent, solange unter 20h von Mo-Sa (Vorlesungszeit)</li>
+                      <li>• Minijob + Werkstudent bei unter 20h</li>
                       <li>• Minijob + Kurzfristige Beschäftigung</li>
                       <li>• Minijob während Praxissemester</li>
                     </ul>
@@ -122,6 +122,7 @@ export default function StudentJobsGuide() {
                     </h3>
                     <ul className="space-y-2">
                       <li>• Max. 520€ pro Monat</li>
+                      <li>• Sonntag z.B. gehört nicht zur Vorlesungszeit. Werden nicht zu den 20h angerechnet.</li>
                       <li>• Keine Stundenbegrenzung</li>
                       <li>• Ganzjährig möglich</li>
                     </ul>
@@ -155,16 +156,16 @@ export default function StudentJobsGuide() {
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <h3 className="font-bold mb-2 flex items-center">
                       <GraduationCap className="mr-2 h-4 w-4 text-gray-700" />
-                      Vorlesungszeit
+                      Die vorlesungfreie Zeit
                     </h3>
-                    <p>• Maximale Gesamtarbeitszeit: 20h/Woche</p>
-                    <p>• Minijob möglich</p>
-                    <p>• Entweder Werkstudent ODER kurzfristige Beschäftigung</p>
+                    <p>• Nachts</p>
+                    <p>• Am Wochenende</p>
+                    <p>• Semesterferien</p>
                   </div>
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <h3 className="font-bold mb-2 flex items-center">
                       <Calendar className="mr-2 h-4 w-4 text-gray-700" />
-                      Semesterferien
+                      Zu dieser Zeit gilt
                     </h3>
                     <p>• Keine Stundenbegrenzung</p>
                     <p>• Höherer Verdienst möglich</p>
@@ -202,6 +203,7 @@ export default function StudentJobsGuide() {
                     <ul className="space-y-2">
                       <li>• Bei der Krankenkasse informieren</li>
                       <li>• Arbeitsstunden und -tage dokumentieren</li>
+                      <ul>• besonders für Arbeit am Wochende und vorlesungsfreier Zeit</ul>
                       <li>• Verdienstgrenzen im Blick behalten</li>
                     </ul>
                   </div>
@@ -232,6 +234,11 @@ export default function StudentJobsGuide() {
             </Card>
           </TabsContent>
         </Tabs>
+
+        {/* JobFinder Sektion */}
+        <div className="mt-20">
+          <JobFinder />
+        </div>
       </div>
     </div>
   );
