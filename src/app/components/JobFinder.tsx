@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
+import { Card } from './ui/card';
 import { ChevronRight, RotateCcw, ArrowLeft } from 'lucide-react';
 import { questions, results } from '../jobFinderData';
 
