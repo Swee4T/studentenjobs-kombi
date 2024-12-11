@@ -1,5 +1,7 @@
 // jobFinderData.ts
-  export const questions: { [key: string]: Question } = {
+import { Question, Result } from './types';
+
+export const questions: { [key: string]: Question } = {
     start: {
       id: 'start',
       text: 'Welchen Job möchtest du ausführen?',
